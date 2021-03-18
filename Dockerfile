@@ -22,7 +22,9 @@ RUN npm install
 # the `COPY` command
 COPY . .
 
-# this will fail
+# This will fail, probably because `next build` can't write to the
+# filesystem. However, the error message it prints is for an unrelated
+# type of error
 RUN npm run build
 
 ENTRYPOINT [ "npm", "run", "start" ]
